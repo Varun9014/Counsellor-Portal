@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bootstrap demo</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<ul class="nav">
+	<li class="nav-item"><a class="nav-link active" aria-current="page" href="dashboard">View Dashboard</a></li>
+			<li class="nav-item"><a class="nav-link active" aria-current="page" href="enquiry">Add Enquiry</a></li>
+			
+			<li class="nav-item"><a class="nav-link" href="view-enquiries">View Enquiries</a></li>
+			<li class="nav-item"><a class="nav-link" href="logout">Logout</a></li>
+				</ul>
+		<hr />
+		<h2>Add New Enquiry</h2>
+		<font style="color: red;">
+			<p th:text="${emsg}"></p>
+		</font>
+		<font style="color: green;">
+			<p th:text="${smsg}"></p>
+		</font>
+		<form th:action="@{/addEnq}" th:object="${enquiry}" method="post">
+			<table>
+				<tr>
+					<td>Student Name :</td>
+					<td><input type="text" th:field="*{stuName}" required></td>
+				</tr>
+				<tr>
+					<td>Student Phno :</td>
+					<td><input type="number" th:field="*{studentPhno}" required></td>
+				</tr>
+				<tr>
+					<td>Training Mode :</td>
+					<td>
+						<select th:field="*{classMode} " required>
+							<option value="online">Online</option>
+							<option value="Classroom">Classroom</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Select Course :</td>
+					<td>
+						<select th:field="*{courseName}" required>
+							<option value="Java">Java</option>
+							<option value="Python">Python</option>
+							<option value="DevOps">DevOps</option>
+							<option value="AWS">AWS</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td>Enquiry :</td>
+					<td>
+						<select th:field="*{enqStatus}" required>
+							<option value="Open">Open</option>
+							<option value="Enrolled">Enrolled</option>
+							<option value="Lost">Lost</option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<td> <a href="enquiry" class="btn btn-info">Reset</a> </td>
+					<td><input type="submit" value="save" class="btn btn-primary"></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+</html>
