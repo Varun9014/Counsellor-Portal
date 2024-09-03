@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import in.ashokit.dto.ViewEnqsFilterRequest;
 import in.ashokit.entity.Enquiry;
@@ -65,6 +66,16 @@ public class EnquiryController {
 		Enquiry enquiry = new Enquiry();
 		model.addAttribute("enquiry", enquiry);
 		return "enquiryForm";
+	}
+	
+	@GetMapping("/editEnq")
+	public String editEnquiry(@RequestParam("enqId")Integer enqId,Model model)
+	{
+		
+		Enquiry enquiry =enqService.getEnquiryById(enqId);
+		model.addAttribute("enquiry",enquiry);
+		return "enquiryForm";
+		
 	}
 	
 	@PostMapping("/addEnq") // TO SAVE THE ENQUIRY

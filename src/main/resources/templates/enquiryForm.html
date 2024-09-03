@@ -28,6 +28,7 @@
 				<tr>
 					<td>Student Name :</td>
 					<td><input type="text" th:field="*{stuName}" required></td>
+					<input type="hidden" th:field="*{enqId}" required> //remember this helpfull that save(UPSERT) to give primary key for to update the data when click over the edit option
 				</tr>
 				<tr>
 					<td>Student Phno :</td>
@@ -37,6 +38,7 @@
 					<td>Training Mode :</td>
 					<td>
 						<select th:field="*{classMode} " required>
+						<option value="">-Select-</option>
 							<option value="online">Online</option>
 							<option value="Classroom">Classroom</option>
 						</select>
@@ -46,10 +48,12 @@
 					<td>Select Course :</td>
 					<td>
 						<select th:field="*{courseName}" required>
+							<option value="">-Select-</option>
 							<option value="Java">Java</option>
 							<option value="Python">Python</option>
 							<option value="DevOps">DevOps</option>
 							<option value="AWS">AWS</option>
+							
 						</select>
 					</td>
 				</tr>
@@ -57,6 +61,7 @@
 					<td>Enquiry :</td>
 					<td>
 						<select th:field="*{enqStatus}" required>
+						<option value="">-Select-</option>
 							<option value="Open">Open</option>
 							<option value="Enrolled">Enrolled</option>
 							<option value="Lost">Lost</option>

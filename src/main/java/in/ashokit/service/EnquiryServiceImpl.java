@@ -35,7 +35,7 @@ public class EnquiryServiceImpl implements EnquiryService {
 		
 		
 		enq.setCounsellor(counsellor);  	//assign the of counsellorId as a foreign key to enquiry table
-
+		// UPSERT update(if primary key is their)+insert(if no primary key)
 		Enquiry save = enqRepo.save(enq); // save the given row of data to the enquiry
 		if (save.getEnqId() != null) 			// is the enquiry is saved or not
 		{

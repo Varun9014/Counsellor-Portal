@@ -88,7 +88,10 @@
 						<td th:text="${enq.classMode}"></td>
 						<td th:text="${enq.studentPhno}"></td>
 						<td th:text="${enq.enqStatus}"></td>
-						<td><a href=" ">Edit</a></td>
+						<td>
+							<a th:href="@{'/editEnq?enqId='+${enq.enqId}}">Edit</a>
+							
+						</td>
 					</tr>
 
 					<tr th:if="${enquiries.size()==0}">
